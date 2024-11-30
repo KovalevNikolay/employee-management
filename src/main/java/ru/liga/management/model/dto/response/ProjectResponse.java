@@ -1,12 +1,12 @@
 package ru.liga.management.model.dto.response;
 
+import ru.liga.management.model.enums.ProjectStatus;
+
 public record ProjectResponse(Long id,
                               String name,
-                              String lastName,
-                              String firstName,
-                              String middleName,
+                              EmployeeResponse manager,
                               Boolean isInternal,
                               String chargeCode,
-                              String status,
-                              String comment) {
+                              String comment,
+                              ProjectStatus status) {
 }
