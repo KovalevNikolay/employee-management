@@ -3,12 +3,15 @@ package ru.liga.management.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.liga.management.model.dto.filter.EmployeeFilter;
 import ru.liga.management.model.dto.request.EmployeeRequest;
 import ru.liga.management.model.dto.response.EmployeeResponse;
 import ru.liga.management.model.mapper.EmployeeMapper;
 import ru.liga.management.repository.EmployeeRepository;
+import ru.liga.management.repository.specification.EmployeeSpecification;
 import ru.liga.management.service.EmployeeService;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -18,6 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;
     private final EmployeeMapper employeeMapper;
+    private final EmployeeSpecification employeeSpecification;
 
     @Override
     public Optional<EmployeeResponse> findById(Long id) {
@@ -37,5 +41,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Transactional
     public EmployeeResponse update(EmployeeRequest dto) {
         return null;
+    }
+
+    @Override
+    public List<EmployeeResponse> findAll(EmployeeFilter filter) {
+        return employeeMapper.toResponseList(
+                employeeRepository.findAll(employeeSpecification.withFilter(filter))
+        );
     }
 }

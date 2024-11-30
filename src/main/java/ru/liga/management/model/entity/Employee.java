@@ -14,6 +14,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.FieldNameConstants;
 import ru.liga.management.model.enums.EmployeeStatus;
 import ru.liga.management.model.enums.Grade;
 import ru.liga.management.model.enums.Role;
@@ -25,6 +26,7 @@ import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@FieldNameConstants
 public class Employee {
 
     @Id

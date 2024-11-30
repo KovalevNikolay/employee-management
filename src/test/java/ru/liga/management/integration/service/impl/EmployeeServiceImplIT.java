@@ -17,16 +17,6 @@ class EmployeeServiceImplIT extends IntegrationTestBase {
 
 
     @Test
-    void shouldCreateEmployeeWithoutLeader() {
-
-    }
-
-    @Test
-    void shouldCreateEmployeeWithLeader() {
-
-    }
-
-    @Test
     void shouldReturnEmployeeWithoutLeader() {
         Optional<EmployeeResponse> maybeEmployee = employeeService.findById(3L);
         assertThat(maybeEmployee).isPresent();
