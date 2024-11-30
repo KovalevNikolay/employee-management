@@ -1,4 +1,4 @@
-package ru.liga.management.integration.service;
+package ru.liga.management.integration.service.impl;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
