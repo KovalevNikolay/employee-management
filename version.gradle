@@ -1,0 +1,5 @@
+ext {
+    versions = [
+            'mapStruct' : '1.6.3'
+    ]
+}
