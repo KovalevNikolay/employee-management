@@ -26,6 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Transactional
     public EmployeeResponse create(EmployeeRequest dto) {
         return employeeMapper.toResponse(
                 employeeRepository.save(employeeMapper.toEntity(dto))
@@ -33,6 +34,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    @Transactional
     public EmployeeResponse update(EmployeeRequest dto) {
         return null;
     }
