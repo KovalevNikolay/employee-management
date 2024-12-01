@@ -29,6 +29,6 @@ public class PredicateUtil {
         if (predicates.isEmpty()) {
             return criteriaBuilder.conjunction();
         }
-        return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
+        return criteriaBuilder.and(predicates.toArray(Predicate[]::new));
     }
 }
