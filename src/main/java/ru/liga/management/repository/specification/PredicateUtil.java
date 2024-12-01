@@ -1,4 +1,4 @@
-package ru.liga.management.repository;
+package ru.liga.management.repository.specification;
 
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.Predicate;

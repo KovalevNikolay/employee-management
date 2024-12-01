@@ -8,7 +8,7 @@ import ru.liga.management.model.dto.request.EmployeeRequest;
 import ru.liga.management.model.dto.response.EmployeeResponse;
 import ru.liga.management.model.mapper.EmployeeMapper;
 import ru.liga.management.repository.EmployeeRepository;
-import ru.liga.management.repository.specification.EmployeeSpecification;
+import ru.liga.management.repository.specification.EmployeeFilterSpecification;
 import ru.liga.management.service.EmployeeService;
 
 import java.util.List;
@@ -21,7 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;
     private final EmployeeMapper employeeMapper;
-    private final EmployeeSpecification employeeSpecification;
+    private final EmployeeFilterSpecification filterSpecification;
 
     @Override
     public Optional<EmployeeResponse> findById(Long id) {
@@ -46,7 +46,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<EmployeeResponse> findAll(EmployeeFilter filter) {
         return employeeMapper.toResponseList(
-                employeeRepository.findAll(employeeSpecification.withFilter(filter))
+                employeeRepository.findAll(filterSpecification.withFilter(filter))
         );
     }
 }
