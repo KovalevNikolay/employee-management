@@ -27,7 +27,7 @@ public class EmployeeFilterSpecification {
 
     public Specification<Employee> withFilter(EmployeeFilter filter) {
         return (root, query, cb) ->
-                PredicateUtil.builder()
+                PredicateHelper.builder()
                         .add(filter.firstName(), value -> filterHelper.stringContaining(root, cb, firstName, value))
                         .add(filter.lastName(), value -> filterHelper.stringContaining(root, cb, lastName, value))
                         .add(filter.role(), value -> cb.equal(root.get(role), Role.valueOf(value)))

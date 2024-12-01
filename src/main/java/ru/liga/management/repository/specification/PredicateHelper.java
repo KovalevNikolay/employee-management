@@ -10,15 +10,15 @@ import java.util.List;
 import java.util.function.Function;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class PredicateUtil {
+public class PredicateHelper {
 
     private final List<Predicate> predicates = new ArrayList<>();
 
-    public static PredicateUtil builder() {
-        return new PredicateUtil();
+    public static PredicateHelper builder() {
+        return new PredicateHelper();
     }
 
-    public <T> PredicateUtil add(T object, Function<T, Predicate> function) {
+    public <T> PredicateHelper add(T object, Function<T, Predicate> function) {
         if (object != null) {
             predicates.add(function.apply(object));
         }
